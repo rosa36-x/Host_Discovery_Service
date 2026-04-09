@@ -53,7 +53,7 @@ sudo apt install wireshark -y
 ## Project Structure
 ```
 firewall_controller.py  
-screenshots/  
+screenshots_sdn/  
 README.md  
 ```
 
@@ -92,7 +92,7 @@ sudo mn --topo single,3 --controller=remote,ip=127.0.0.1 --switch ovsk,protocols
 h1 ping -c 4 h2
 ```
 
-![Allowed Traffic](screenshots/success_case.png)
+![Allowed Traffic](screenshots_sdn/success_case.png)
 
 ---
 
@@ -101,24 +101,29 @@ h1 ping -c 4 h2
 h1 ping -c 4 h3
 ```
 
-![Blocked Traffic](screenshots/blocked_case.png)
+![Blocked Traffic](screenshots_sdn/blocked_case.png)
 
 ---
 
 ## Controller Output
 
 ### Controller Startup
-![Controller Startup](screenshots/controller_startup.png)
+![Controller Startup](screenshots_sdn/controller_startup.png)
 
 ---
 
 ### Host Discovery Logs
-![Host Discovery](screenshots/host_discovery_logs.png)
+![Host Discovery](screenshots_sdn/host_discovery_logs.png)
+
+---
+
+### Show Hosts
+![Show Hosts](screenshots_sdn/show_hosts.png)
 
 ---
 
 ### Firewall Log Proof
-![Firewall Logs](screenshots/firewall_log_proof.png)
+![Firewall Logs](screenshots_sdn/firewall_log_proof.png)
 
 ---
 
@@ -128,13 +133,13 @@ h1 ping -c 4 h3
 sudo ovs-ofctl dump-flows s1
 ```
 
-![Flow Table](screenshots/flowtable.png)
+![Flow Table](screenshots_sdn/flowtable.png)
 
 ---
 
 ## Packet Analysis (Wireshark)
 
-![Wireshark Capture](screenshots/wireshark.png)
+![Wireshark Capture](screenshots_sdn/wireshark.png)
 
 ---
 
@@ -149,5 +154,4 @@ sudo ovs-ofctl dump-flows s1
 
 ## Conclusion
 
-This project demonstrates the implementation of an SDN-based firewall using a centralized controller.  
-The system dynamically learns host information and enforces traffic rules, allowing permitted communication while blocking restricted traffic.
+This project demonstrates an SDN-based firewall and learning switch with a host discovery service that dynamically maps MAC addresses to switch ports. It enables efficient packet forwarding, enforces blocked IP policies, and showcases how SDN’s centralized control improves network management and performance.
